@@ -45,10 +45,10 @@ console.log(monthlyRate);
 // If your name is `Oscar` mortgageCalculator() should return "Oscar, your monthly rate is 1073.64"
 // */
 
-// // function mortgageCalculatorOne() {
-// //     console.log(`${name} your monthly rate is ${monthlyRate}`);
-// // }
-// // mortgageCalculatorOne();
+function mortgageCalculatorOne() {
+    return(`${name} your monthly rate is ${monthlyRate}`);
+}
+console.log(mortgageCalculatorOne());
 
 // // // 🏡 Task 4: Arguments and Parameters
 // // /* Substitute the variables in your functions for parameters such that you can substitute `P`, `I`, and `N` when you call the function.
@@ -56,11 +56,10 @@ console.log(monthlyRate);
 // // For example,
 // // mortgageCalculator(200000, 0.05, 30); <-- should return 1,073.64
 // // */
-// function mortgageCalculatorTwo(P,I,N){
-//     let rate= P*((I/12) * Math.pow((1+(I/12)),(N*12)))/((Math.pow((1+(I/12)),(N*12)))-1);
-//     return rate;
-// }
-// console.log(mortgageCalculatorTwo(200000,0.05,30)); 
+function mortgageCalculatorTwo(P,I,N){
+    return Math.round( P*((I/12) * Math.pow((1+(I/12)),(N*12)))/((Math.pow((1+(I/12)),(N*12)))-1));
+  }
+console.log(mortgageCalculatorTwo(200000,0.05,30)); 
 
 
 // // // // 🏡 Task 5: Conditionals
@@ -71,17 +70,17 @@ console.log(monthlyRate);
 // // // // Hint: To drop an interest rate by 5% you can take monthlyRate and multiply it by 0.95. Similarly, to increase an interest rate by 5% you'd do monthlyRate * 1.05. 
 // // // // // */
 
-// function mortgageCalculatorThree(P,I,N,creditScore){
-//     let adjustment = 1;
-//     if (creditScore > 740){
-//     adjustment -= .005;
-//     }else if (creditScore < 660){
-//     adjustment += .005;
-// } 
-//     const baseRate = mortgageCalculatorTwo (P,I*adjustment, N);
-//     return baseRate;
-//  }
-// console.log(mortgageCalculatorThree(200000, 0.05, 30, 600));
+function mortgageCalculatorThree(P,I,N,creditScore){
+    let adjustment = 1;
+    if (creditScore > 740){
+    adjustment -= .005;
+    }else if (creditScore < 660){
+    adjustment += .005;
+} 
+    const baseRate = mortgageCalculatorTwo (P,I*adjustment, N);
+    return baseRate;
+ }
+console.log(mortgageCalculatorThree(200000, 0.05, 30, 600));
 
 
 // // // 🏡 Task 6: Loops
@@ -102,11 +101,12 @@ console.log(monthlyRate);
 
 function variableInterestRate(P,I,N){
     for (let i=0; i < 10; i++) {
-        let rate= P*((I/12) * Math.pow((1+(I/12)),(N*12)))/((Math.pow((1+(I/12)),(N*12)))-1);
+        let monthlyRate=Math.round( P*((I/12) * Math.pow((1+(I/12)),(N*12)))/((Math.pow((1+(I/12)),(N*12)))-1));
         return `${name}, with an interest rate of ${I} your monthly rate is ${monthlyRate}.`;
         }
-
+    }
 console.log(variableInterestRate(200000, 0.05, 30));
+    
 
 // // // 🌟🌟🌟 STRETCH 🌟🌟🌟//
 
@@ -121,4 +121,4 @@ console.log(variableInterestRate(200000, 0.05, 30));
 // /* 🏡 Explore using `window.prompt()` to allow a user to input parameters in the browser */
 
 
-// /* 🏡  Refactor your `variableInterestRate()` function to accept an array of interest rates (make sure to copy and paste as to not lose your work!) */
+/* 🏡  Refactor your `variableInterestRate()` function to accept an array of interest rates (make sure to copy and paste as to not lose your work!) */
